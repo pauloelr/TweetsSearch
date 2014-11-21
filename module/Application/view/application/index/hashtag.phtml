@@ -1,0 +1,55 @@
+<div class="jumbotron">
+    <h1><?php echo sprintf($this->translate('Welcome to %sZend Framework 2%s'), '<span class="zf-green">', '</span>') ?></h1>
+    <p><?php echo sprintf($this->translate('Congratulations! You have successfully installed the %sZF2 Skeleton Application%s. You are currently running Zend Framework version %s. This skeleton can serve as a simple starting point for you to begin building your application on ZF2.'), '<a href="https://github.com/zendframework/ZendSkeletonApplication" target="_blank">', '</a>', \Zend\Version\Version::VERSION) ?></p>
+    <p><a class="btn btn-success btn-lg" href="https://github.com/zendframework/zf2" target="_blank"><?php echo $this->translate('Fork Zend Framework 2 on GitHub') ?> &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Busca por Hashtag</h3>
+            </div>
+            <div class="panel-body">
+                <?php
+                    $form->setAttribute(
+                        'action', $this->url(
+                            'application/default',
+                            array('controller' => 'index', 'action' => 'hashtag')
+                        )
+                    );
+
+                    $form->prepare();
+
+                    echo $this->form()->openTag($form);
+                    echo $this->formRow($form->get('hashtag'));
+                    echo $this->formSubmit($form->get('submit'));
+                    echo $this->form()->closeTag();
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Resultado da Busca</h3>
+            </div>
+
+            <div class="panel-body">
+                <ol>
+                <?php foreach($tweets->statuses as $tweet):?>
+                    <li>
+                        <h3>
+                            <?=$tweet->user->name?>
+                            (<a href="http://twitter.com/<?=$tweet->user->screen_name?>">@<?=$tweet->user->screen_name?></a>)
+                        </h3>
+                        <p><?=$tweet->text?></p>
+                    </li>
+                <?php endforeach; ?>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
