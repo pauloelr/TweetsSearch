@@ -13,7 +13,7 @@ de um formulário e teve como objetivo introduzir os conceitos de desenvolviment
 em PHP utilizando frameworks e desmistificar o fato de que os frameworks sejam
 de difícil utilização e aprendizado
 
-Os slides da palestra estão disponíveis em: 
+Os slides da palestra estão disponíveis em: http://pt.slideshare.net/pauloelr/introduo-a-frameworks
 
 Instalação
 -----------
